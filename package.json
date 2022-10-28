@@ -1,0 +1,25 @@
+{
+  "name": "dogstatsd-2-statsd",
+  "version": "0.0.1",
+  "description": "Listen on UDP 8125 for DogStatsD-formatted metrics. Translate those to StatsD format. Send to 8124.",
+  "main": "index.js",
+  "scripts": {
+    "format": "prettier index.js --write",
+    "lint": "yarn run eslint index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "devDependencies": {
+    "eslint": "8.25.0",
+    "eslint-config-airbnb": "19.0.4",
+    "eslint-plugin-import": "2.26.0",
+    "eslint-plugin-jsx-a11y": "6.6.1",
+    "eslint-plugin-react": "7.31.10",
+    "prettier": "2.7.1"
+  },
+  "dependencies": {
+    "bunyan": "1.8.15"
+  }
+}
