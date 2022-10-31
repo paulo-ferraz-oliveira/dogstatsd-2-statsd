@@ -28,6 +28,11 @@ node index.js | ./node_modules/bunyan/bin/bunyan
 
 Now start sending your metrics and watch the logs.
 
+### Assumptions
+
+* local port 8125 is not bound (this is our input)
+* local port 8135 is bound to `statsd` input
+
 ## Linting
 
 To lint

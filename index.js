@@ -2,7 +2,6 @@ import dgram from 'node:dgram'
 import bunyan from 'bunyan'
 
 const log = bunyan.createLogger({ name: 'dogstatsd-2-statsd', level: 'trace' })
-const server = dgram.createSocket('udp4')
 
 function trans(msg) {
   log.trace(`server got: ${msg}`)
@@ -47,11 +46,15 @@ function trans(msg) {
   return transMsg
 }
 
-server.on('message', (udp) => {
-  const msgs = udp.toString().split('\n')
-  msgs.forEach((msg) => {
-    trans(msg)
-  })
-})
+const udpServer = dgram.createSocket('udp4')
+const udpClient = dgram.createSocket('udp4')
 
-server.bind(8125)
+udpServer
+  .on('message', (udp) => {
+    const msgs = udp.toString().split('\n')
+    msgs.forEach((msg) => {
+      const transMsg = trans(msg)
+      udpClient.send(transMsg, 8135, 'localhost')
+    })
+  })
+  .bind(8125)
