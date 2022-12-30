@@ -48,13 +48,16 @@ function trans(msg) {
 
 const udpServer = dgram.createSocket('udp4')
 const udpClient = dgram.createSocket('udp4')
+const srcPort = 8125
+const dstPort = 8135
 
 udpServer
   .on('message', (udp) => {
     const msgs = udp.toString().split('\n')
     msgs.forEach((msg) => {
       const transMsg = trans(msg)
-      udpClient.send(transMsg, 8135, 'localhost')
+      udpClient.send(transMsg, dstPort, 'localhost')
     })
   })
-  .bind(8125)
+  .bind(srcPort)
+log.info(`Relaying UDP ${srcPort} to ${dstPort}...`)
