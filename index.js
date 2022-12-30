@@ -1,10 +1,7 @@
 import dgram from 'node:dgram'
-import bunyan from 'bunyan'
-
-const log = bunyan.createLogger({ name: 'dogstatsd-2-statsd', level: 'trace' })
 
 function trans(msg) {
-  log.trace(`server got: ${msg}`)
+  console.log(`SRC: ${msg}`)
 
   // Very dumb translation, but hopefully serves _all_ our purposes.
   // Assumes input is correctly formatted as Datadog.
@@ -40,21 +37,23 @@ function trans(msg) {
   if (sampleRate) {
     transMsg += `|@${sampleRate}`
   }
-
-  log.trace(`transformed it as ${transMsg}`)
+  console.log(`DST: ${transMsg}`)
 
   return transMsg
 }
 
 const udpServer = dgram.createSocket('udp4')
 const udpClient = dgram.createSocket('udp4')
+const srcPort = 8125
+const dstPort = 8135
 
 udpServer
   .on('message', (udp) => {
     const msgs = udp.toString().split('\n')
     msgs.forEach((msg) => {
       const transMsg = trans(msg)
-      udpClient.send(transMsg, 8135, 'localhost')
+      udpClient.send(transMsg, dstPort, 'localhost')
     })
   })
-  .bind(8125)
+  .bind(srcPort)
+console.log(`Relaying UDP ${srcPort} to ${dstPort}...`)
