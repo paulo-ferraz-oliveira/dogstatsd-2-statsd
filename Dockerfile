@@ -1,6 +1,6 @@
 FROM graphiteapp/graphite-statsd:1.1.10-4
 
-ARG VSN=1.0.0
+ARG VSN=1.0.2
 
 WORKDIR /etc/service/dogstatsd-2-statsd
 
