@@ -1,22 +1,30 @@
 {
-  "name": "dogstatsd-2-statsd",
-  "version": "1.0.2",
   "description": "Listen on UDP 8125 for DogStatsD-formatted metrics. Translate those to StatsD format. Send to 8135.",
-  "main": "index.js",
-  "scripts": {
-    "format": "prettier index.js --write",
-    "lint": "yarn run eslint index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "Paulo F. Oliveira",
-  "license": "MIT",
-  "type": "module",
   "devDependencies": {
     "eslint": "8.35.0",
     "eslint-config-airbnb": "19.0.4",
     "eslint-plugin-import": "2.27.5",
     "eslint-plugin-jsx-a11y": "6.7.1",
     "eslint-plugin-react": "7.32.2",
-    "prettier": "2.8.4"
-  }
+    "markdownlint-cli": "0.32.2",
+    "prettier": "2.8.4",
+    "yaml-lint": "1.7.0"
+  },
+  "engines": {
+    "node": ">=16"
+  },
+  "license": "MIT",
+  "main": "index.js",
+  "name": "dogstatsd-2-statsd",
+  "scripts": {
+    "build": "npm install",
+    "dist": "npm run build && npm run prettier && npm run eslint && npm run markdownlint-cli && npm run yaml-lint && echo \"\nReady for submission!\"",
+    "eslint": "node_modules/.bin/eslint index.js",
+    "markdownlint-cli": "node_modules/.bin/markdownlint -c .markdownlint-cli.yml .github/**/*.md .github/*.md *.md",
+    "prettier": "node_modules/.bin/prettier index.js --write",
+    "test": "echo \"Functional tests will be performed on GitHub via this project's workflows!\" && exit 1",
+    "yaml-lint": "node_modules/.bin/yamllint -c .yaml-lint.yml .github/**/*.yml .*.yml *.yml"
+  },
+  "type": "module",
+  "version": "1.0.2"
 }

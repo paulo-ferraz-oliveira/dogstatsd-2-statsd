@@ -55,7 +55,7 @@ to install dev dependencies.
 To lint
 
 ```shell
-npm run lint
+npm run eslint
 ```
 
 ## Formatting
@@ -63,5 +63,5 @@ npm run lint
 To format
 
 ```shell
-npm run format
+npm run prettier
 ```
