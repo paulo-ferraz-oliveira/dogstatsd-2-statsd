@@ -50,6 +50,8 @@ npm install
 
 to install dev dependencies.
 
+Also, check [CONTRIBUTING](CONTRIBUTING.md).
+
 ## Linting
 
 To lint
@@ -65,3 +67,20 @@ To format
 ```shell
 npm run prettier
 ```
+
+## Versioning
+
+This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+
+## Readme
+
+We get inspiration for our README's format/content from
+[Make a README](https://www.makeareadme.com/).
+
+## Changelog
+
+See the [Releases](../../releases) page.
+
+## License
+
+Check [LICENSE](LICENSE.md).
