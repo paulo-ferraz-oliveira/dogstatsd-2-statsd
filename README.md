@@ -50,6 +50,8 @@ npm install
 
 to install dev dependencies.
 
+Also, check [CONTRIBUTING](CONTRIBUTING.md).
+
 ## Linting
 
 To lint
@@ -78,10 +80,6 @@ We get inspiration for our README's format/content from
 ## Changelog
 
 See the [Releases](../../releases) page.
-
-## Contributing
-
-Check [CONTRIBUTING](CONTRIBUTING.md).
 
 ## License
 
