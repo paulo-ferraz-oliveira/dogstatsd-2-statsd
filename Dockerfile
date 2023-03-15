@@ -7,10 +7,10 @@ WORKDIR /etc/service/dogstatsd-2-statsd
 # Read /entrypoint to understand why we use run and /etc/service
 RUN set -ex \
  && sed -i 's/8125/8135/g' /opt/statsd/config/udp.js \
- && apk add npm git \
+ && apk --no-cache add npm=8.10.0-r0 git=2.36.5-r0 \
  && git clone --depth 1 --branch $VSN https://github.com/paulo-ferraz-oliveira/dogstatsd-2-statsd.git . \
  && npm install --omit=dev \
- && echo -e "#!/bin/bash\n\nexec node index.js" > run \ 
+ && printf "#!/bin/bash\n\nexec node index.js" > run \
  && chmod +x run
  
-ENTRYPOINT /entrypoint
+ENTRYPOINT ["/entrypoint"]
