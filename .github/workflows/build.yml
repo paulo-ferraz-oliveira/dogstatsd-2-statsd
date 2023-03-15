@@ -1,0 +1,19 @@
+---
+name: Build
+
+"on": push
+
+jobs:
+  build:
+    name: Build
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Build
+        uses: docker/build-push-action@v4
+        with:
+          no-cache: true
+          platforms:
+            - linux/amd64
+            - linux/arm64
