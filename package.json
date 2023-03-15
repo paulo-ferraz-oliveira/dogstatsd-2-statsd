@@ -26,5 +26,5 @@
     "yaml-lint": "node_modules/.bin/yamllint -c .yaml-lint.yml .github/**/*.yml .*.yml *.yml"
   },
   "type": "module",
-  "version": "1.0.2"
+  "version": "1.0.3"
 }
