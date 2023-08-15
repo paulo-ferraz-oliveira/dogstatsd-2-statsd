@@ -1,4 +1,9 @@
-# dogstatsd-2-statsd
+# dogstatsd-2-statsd [![Build][build-img]][build] [![Lint][lint-img]][lint]
+
+[build-img]: https://github.com/paulo-ferraz-oliveira/dogstatsd-2-statsd/actions/workflows/build.yml/badge.svg
+[build]: https://github.com/paulo-ferraz-oliveira/dogstatsd-2-statsd/actions/workflows/build.yml
+[lint-img]: https://github.com/paulo-ferraz-oliveira/dogstatsd-2-statsd/actions/workflows/lint.yml/badge.svg
+[lint]: https://github.com/paulo-ferraz-oliveira/dogstatsd-2-statsd/actions/workflows/lint.yml
 
 We implement a very basic translation layer for when you're using
 Datadog as a remote sink for your metrics but, e.g. locally you're using
