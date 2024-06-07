@@ -1,7 +1,10 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
-    "config:best-practices"
+    "config:recommended",
+    "helpers:pinGitHubActionDigests",
+    ":pinDevDependencies",
+    ":pinDigestsDisabled"
   ],
   "packageRules": [
     {
@@ -45,7 +48,7 @@
         ".github/.*/.*\\.yml"
       ],
       "matchStrings": [
-        "# renovate datasource: (?<datasource>[^,]+), depName: (?<depName>[^\\n]+)\\n.+?(?<currentValue>v?\\d+(\\.\\d+(\\.\\d+)?)?)\\n"
+        "# renovate datasource: (?<datasource>[^,]+), depName: (?<depName>[^\\n]+)\\n.+?(?<currentValue>v?\\d+(\\.\\d+(\\.\\d+)?)?(-[^\\n]+)?)\\n"
       ]
     },
     {
@@ -61,7 +64,7 @@
       "versioningTemplate": "semver"
     },
     {
-      "description": "Match versions in Dockerfile",
+      "description": "Match versions (per datasource and depName) in Dockerfile",
       "customType": "regex",
       "fileMatch": [
         "Dockerfile"
