@@ -2,16 +2,12 @@
   "description": "Listen on UDP 8125 for DogStatsD-formatted metrics. Translate those to StatsD format. Send to 8135.",
   "devDependencies": {
     "eslint": "9.4.0",
-    "eslint-config-airbnb": "19.0.4",
-    "eslint-plugin-import": "2.29.1",
-    "eslint-plugin-jsx-a11y": "6.8.0",
-    "eslint-plugin-react": "7.34.2",
     "markdownlint-cli": "0.41.0",
     "prettier": "3.3.1",
     "yaml-lint": "1.7.0"
   },
   "engines": {
-    "node": ">=16"
+    "node": ">=20"
   },
   "license": "MIT",
   "main": "index.js",
