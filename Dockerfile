@@ -1,4 +1,4 @@
-FROM graphiteapp/graphite-statsd:1.1.10-4
+FROM graphiteapp/graphite-statsd:1.1.10-4@sha256:362b5ed97e77af938d7fab80fd25350baafe105f48fd9dcae849ada6a15929a5
 
 ARG VSN=1.0.4
 
