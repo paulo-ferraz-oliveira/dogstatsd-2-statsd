@@ -1,7 +1,7 @@
 {
   "description": "Listen on UDP 8125 for DogStatsD-formatted metrics. Translate those to StatsD format. Send to 8135.",
   "devDependencies": {
-    "eslint": "9.4.0",
+    "eslint": "9.5.0",
     "markdownlint-cli": "0.41.0",
     "prettier": "3.3.2",
     "yaml-lint": "1.7.0"
