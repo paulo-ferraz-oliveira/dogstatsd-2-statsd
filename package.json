@@ -1,26 +1,24 @@
 {
+  "name": "dogstatsd-2-statsd",
   "description": "Listen on UDP 8125 for DogStatsD-formatted metrics. Translate those to StatsD format. Send to 8135.",
-  "devDependencies": {
-    "eslint": "9.7.0",
-    "markdownlint-cli": "0.41.0",
-    "prettier": "3.3.3",
-    "yaml-lint": "1.7.0"
-  },
-  "engines": {
-    "node": ">=20"
-  },
+  "version": "1.0.4",
   "license": "MIT",
   "main": "index.js",
-  "name": "dogstatsd-2-statsd",
-  "scripts": {
-    "build": "npm install",
-    "dist": "npm run build && npm run prettier && npm run eslint && npm run markdownlint-cli && npm run yaml-lint && echo \"\nReady for submission!\"",
-    "eslint": "node_modules/.bin/eslint index.js",
-    "markdownlint-cli": "node_modules/.bin/markdownlint -c .markdownlint-cli.yml .github/**/*.md .github/*.md *.md",
-    "prettier": "node_modules/.bin/prettier index.js --write",
-    "test": "echo \"Functional tests will be performed on GitHub via this project's workflows!\" && exit 1",
-    "yaml-lint": "node_modules/.bin/yamllint -c .yaml-lint.yml .github/**/*.yml .*.yml *.yml"
+  "devDependencies": {
+    "eslint": "9.6.0",
+    "prettier": "3.3.2"
   },
-  "type": "module",
-  "version": "1.0.4"
+  "scripts": {
+    "prettier-rc": "prettier .prettierrc --write",
+    "prettier-cjs": "prettier eslint.config.cjs --write",
+    "prettier-index": "prettier index.js --write",
+    "prettier-package": "prettier package.json --write",
+    "prettier": "npm run prettier-rc && npm run prettier-cjs && npm run prettier-index && npm run prettier-package",
+    "eslint-cjs": "eslint eslint.config.cjs",
+    "eslint-index": "eslint index.js",
+    "eslint": "npm run eslint-cjs && npm run eslint-index",
+    "format-lint": "npm run prettier && npm run eslint",
+    "test": "echo \"Functional tests will be performed on GitHub via this project's workflows!\"",
+    "dist": "npm install && npm run format-lint && echo \"\nReady for submission!\""
+  }
 }
