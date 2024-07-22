@@ -1,7 +1,7 @@
-# dogstatsd-2-statsd [![Build][build-img]][build] [![Lint][lint-img]][lint]
+# dogstatsd-2-statsd [![CI][ci-img]][ci] [![Lint][lint-img]][lint]
 
-[build-img]: https://github.com/paulo-ferraz-oliveira/dogstatsd-2-statsd/actions/workflows/build.yml/badge.svg
-[build]: https://github.com/paulo-ferraz-oliveira/dogstatsd-2-statsd/actions/workflows/build.yml
+[ci-img]: https://github.com/paulo-ferraz-oliveira/dogstatsd-2-statsd/actions/workflows/ci.yml/badge.svg
+[ci]: https://github.com/paulo-ferraz-oliveira/dogstatsd-2-statsd/actions/workflows/ci.yml
 [lint-img]: https://github.com/paulo-ferraz-oliveira/dogstatsd-2-statsd/actions/workflows/lint.yml/badge.svg
 [lint]: https://github.com/paulo-ferraz-oliveira/dogstatsd-2-statsd/actions/workflows/lint.yml
 
