@@ -1,5 +1,5 @@
 ---
-name: Build
+name: CI
 
 "on":
   push:
@@ -11,8 +11,8 @@ name: Build
   workflow_dispatch: {}
 
 jobs:
-  build:
-    name: Build
+  ci:
+    name: CI
 
     runs-on: ubuntu-22.04
 
@@ -25,3 +25,9 @@ jobs:
         with:
           no-cache: true
           platforms: linux/amd64,linux/arm64
+
+      - name: Checkout
+        uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4.1.7
+
+      - name: CI
+        run: npm run dist
