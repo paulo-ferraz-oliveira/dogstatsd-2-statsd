@@ -11,7 +11,7 @@ name: Lint
   workflow_dispatch: {}
 
 jobs:
-  build:
+  lint:
     name: Lint
 
     runs-on: ubuntu-22.04
@@ -24,13 +24,27 @@ jobs:
       - name: Checkout
         uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4.1.7
 
-      - name: Create dist
-        run: |
-          npm install
-          npm run dist
-
       - name: Lint Dockerfile
         run: docker run --rm -i hadolint/hadolint:${{ env.hadolint-version }} < Dockerfile
 
-      - name: Check if build left artifacts
-        run: git diff --exit-code
+      # uses .markdownlint.yml for configuration
+      - name: markdownlint
+        uses: DavidAnson/markdownlint-cli2-action@v16.0.0
+        with:
+          globs: |
+            .github/**/*.md
+            *.md
+
+      - name: yamllint
+        uses: ibiqlik/action-yamllint@v3.1.1
+        with:
+          file_or_dir: |
+            .github/**/*.yml
+            .*.yml
+          strict: true
+          config_file: .yamllint.yml
+
+      - name: actionlint
+        uses: reviewdog/action-actionlint@4f8f9963ca57a41e5fd5b538dd79dbfbd3e0b38a # v1.54.0
+        env:
+          SHELLCHECK_OPTS: -o all
