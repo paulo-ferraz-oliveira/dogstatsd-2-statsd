@@ -6,7 +6,7 @@
   "main": "index.js",
   "devDependencies": {
     "eslint": "9.29.0",
-    "prettier": "3.6.0"
+    "prettier": "3.6.1"
   },
   "scripts": {
     "prettier-rc": "prettier .prettierrc --write",
