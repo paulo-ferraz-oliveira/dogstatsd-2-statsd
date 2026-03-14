@@ -9,6 +9,7 @@ ENV GIT_VERSION="2.34.8-r0"
 
 WORKDIR /etc/service/dogstatsd-2-statsd
 
+SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 RUN set -ex \
  && V=$(grep "PRETTY_NAME" /etc/os-release | cut -d'=' -f2) \
  && if [ "$V" != "\"Alpine Linux v3.15\"" ]; then echo Unexpected Alpine Linux version; exit 1; fi \
