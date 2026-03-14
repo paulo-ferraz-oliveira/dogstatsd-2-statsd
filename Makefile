@@ -35,3 +35,10 @@ build-push: version-check
 	@docker buildx build --platform linux/amd64,linux/arm64 . --tag ${IMAGE}:latest --push
 	@echo "... built and pushed!"
 .PHONY: build-push
+
+run:
+	@docker build . --tag dogstatsd-2-statsd:local --load
+	@docker rm --force dogstatsd-2-statsd
+	@docker run --detach --name dogstatsd-2-statsd --publish 8125:8125/udp --publish 8080:80 dogstatsd-2-statsd:local
+	@echo "🕥 Giving it some time to boot..." && sleep 4 && echo "✅ Opening http://127.0.0.1:8080..." && open http://127.0.0.1:8080
+.PHONY: run
