@@ -5,8 +5,8 @@
   "license": "MIT",
   "main": "index.js",
   "devDependencies": {
-    "eslint": "10.1.0",
-    "prettier": "3.8.1"
+    "eslint": "10.5.0",
+    "prettier": "3.8.4"
   },
   "scripts": {
     "prettier-rc": "prettier .prettierrc --write",
