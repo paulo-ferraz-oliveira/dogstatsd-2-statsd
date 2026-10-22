@@ -3,7 +3,7 @@ FROM graphiteapp/graphite-statsd:1.1.10-4@sha256:362b5ed97e77af938d7fab80fd25350
 ARG VSN=1.0.4
 
 # renovate datasource: repology, depName: alpine_3_17/npm
-ENV NPM_VERSION="8.1.3-r0"
+ENV NPM_VERSION="9.1.2-r0"
 # renovate datasource: repology, depName: alpine_3_17/git
 ENV GIT_VERSION="2.34.8-r0"
 
